@@ -3,7 +3,7 @@ import java.util.*;
 public class PlayTheGame {
 
     public static void main(String[] args) {
-        System.out.println("Choose what game you want to play: type 1 for 'Guess the number', type 2 for 'Guess the word'");
+        System.out.println("Choose the game you want to play: type 1 for 'Guess the number', type 2 for 'Guess the word'");
         Scanner scanner = new Scanner(System.in);
 
         int lintChooseTheGame = scanner.nextInt(); // если игр много, то, наверное, лучше выносить выбор в отдельный метод
@@ -12,7 +12,7 @@ public class PlayTheGame {
                 guessTheNumber();
                 break;
             case 2:
-                guessTheFood();
+                guessTheWord();
                 break;
             default:
                 System.out.println("We have no such game");
@@ -58,7 +58,7 @@ public class PlayTheGame {
     Используем только маленькие буквы.
     */
 
-    public static void guessTheFood() /*throws Exception*/ { // Arrays practice
+    public static void guessTheWord() /*throws Exception*/ { // Arrays practice
         System.out.println("Okay, you wanna play 'Guess the word' game, computer will give you some hints. Here is the array:");
         System.out.println("-------");
         String[] wordsArray = {"apple", "orange", "lemon", "banana", "apricot", "avocado",
