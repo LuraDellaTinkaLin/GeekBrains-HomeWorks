@@ -108,7 +108,7 @@ public class PlayTheGame {
         System.out.print("#############");// Дописываем для ужаса еще решеток
         System.out.println();
         System.out.println("Try another word, if several letters equals you have a hint above");
-        return false; //
+        return false;
     }
 
     public static void PrintTheArray(int delimiterSize, String[] inputArray) { // помощь зала
