@@ -94,7 +94,8 @@ public class PlayTheGame {
             char a = inputWord.charAt(letterNum);
             if (letterNum != secretWord.length()) { //Проверяем, чтобы не вылететь за размер, если введеденное слово будет больше чем загаданное
                 if (secretWord.charAt(letterNum) == a) {
-                    System.out.print(a); //Если буква в позиции совпала, то выводим
+                    System.out.print(a); /*Если буква в позиции совпала, то выводим 
+                    (но если набрать в консоли, например, "aaaaaaaaaaaaaaaaa", то шансы на победу увеличиваются, неплохо сделать бы проверку на вводимое слово*/
 
                 } else {
                     System.out.print("#"); //Если нет, то закрываем
