@@ -1,6 +1,5 @@
 import java.util.*;
 
-// Макс, я очень слоупок, зато делала задания не подглядывая в разборы домашек, честно-честно.
 public class PlayTheGame {
 
     public static void main(String[] args) {
@@ -65,7 +64,7 @@ public class PlayTheGame {
         String[] wordsArray = {"apple", "orange", "lemon", "banana", "apricot", "avocado",
                 "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak",
                 "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear",
-                "pepper", "pineapple", "pumpkin", "potato"}; // как напечатать массив по 10 элементов в строку не так смешно, как я это изобразила? писать метод?
+                "pepper", "pineapple", "pumpkin", "potato"};
         PrintTheArray(10, wordsArray);
         System.out.println("-------");
 
