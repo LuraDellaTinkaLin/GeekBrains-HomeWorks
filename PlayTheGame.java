@@ -87,7 +87,7 @@ public class PlayTheGame {
 
     public static boolean checkAnswer (String secretWord, String inputWord) { //Проверяем ответ и возвращаем true если угадали и false с подсказкой если нет
         if (secretWord.equals(inputWord)) { //А вдруг сразу угадал, тогда выходим
-            System.out.print("You win. The word was: " + secretWord);
+            System.out.print("You win. Guessed word is: " + secretWord);
             return true;
         }
         for (int letterNum = 0; letterNum < inputWord.length(); letterNum++) {
