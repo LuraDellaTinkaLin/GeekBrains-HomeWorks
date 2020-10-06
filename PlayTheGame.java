@@ -105,7 +105,7 @@ public class PlayTheGame {
         }
         System.out.print("#############");// Дописываем для ужаса еще решеток
         System.out.println();
-        System.out.println("Try another word, if several letters equals you have a hint above");
+        System.out.println("Try another word, if several letters equals you have a hint");
         return false; //
     }
 
