@@ -1,34 +1,39 @@
 import java.util.*;
 
 public class PlayTheGame {
-
+   static Scanner GlobalScanner;
     public static void main(String[] args) {
-        System.out.println("Choose the game you want to play: type 1 for 'Guess the number', type 2 for 'Guess the word'");
-        Scanner scanner = new Scanner(System.in);
+        GlobalScanner = new Scanner(System.in);
+        selectTheGame();
+    }
 
-        int lintChooseTheGame = scanner.nextInt(); // если игр много, то, наверное, лучше выносить выбор в отдельный метод
-        switch (lintChooseTheGame) {
-            case 1:
-                guessTheNumber();
-                break;
-            case 2:
-                guessTheWord();
-                break;
-            default:
-                System.out.println("We have no such game");
-                break;
+        public static void selectTheGame () {
+            System.out.println("Choose what game you want to play: type 1 for 'Guess the number', type 2 for 'Guess the word' or type anything different to exit the program");
+            //Scanner scanner = new Scanner(System.in);
+
+          int lintChooseTheGame = GlobalScanner.nextInt() ;
+            switch (lintChooseTheGame) {
+                case 1:
+                    guessTheNumber();
+                    break;
+                case 2:
+                    guessTheFood();
+                    break;
+                default:
+                    System.out.println("We have no such game");
+                    break;
         }
     }
 
     public static void guessTheNumber() { // Scanner from console practice
         System.out.println("Okay, you wanna play 'Guess the Number' game, you have 3 attempts");
-        Scanner scanner = new Scanner(System.in);
+       // Scanner numScanner = new Scanner(System.in);
         int lintUsersChoice;
         int lintRandom = (int) (Math.random() * 10);
 
         for (int lintAttemptsCounter = 0; lintAttemptsCounter < 3; lintAttemptsCounter++) {
             System.out.println("Guess the number from 0 to 9, attempt " + (lintAttemptsCounter + 1));
-            lintUsersChoice = scanner.nextInt();
+            lintUsersChoice = GlobalScanner.nextInt();
             if (lintUsersChoice == lintRandom) {
                 System.out.println("Keanu says that you are breathtaking!");
                 break;
@@ -41,7 +46,8 @@ public class PlayTheGame {
             }
         }
         System.out.println("The guessed number is " + lintRandom);
-        scanner.close();
+       // numScanner.close();
+        selectTheGame();
     }
 
     /* Создать массив из слов
@@ -58,7 +64,7 @@ public class PlayTheGame {
     Используем только маленькие буквы.
     */
 
-    public static void guessTheWord() /*throws Exception*/ { // Arrays practice
+    public static void guessTheFood() /*throws Exception*/ { // Arrays practice
         System.out.println("Okay, you wanna play 'Guess the word' game, computer will give you some hints. Here is the array:");
         System.out.println("-------");
         String[] wordsArray = {"apple", "orange", "lemon", "banana", "apricot", "avocado",
@@ -70,16 +76,18 @@ public class PlayTheGame {
 
         int lintCompsChoice = new Random().nextInt(wordsArray.length);
         String secretWord = wordsArray[lintCompsChoice];
-        Scanner lintConsoleInput = new Scanner(System.in);
+//        Scanner lintConsoleInput = new Scanner(System.in);
         System.out.print("Type a word that computer guessed, you think: ");
         boolean successFlag = false;
         while (!successFlag) { //Выполняем пока слово не угадается
-            successFlag = checkAnswer(secretWord, readInput(lintConsoleInput));
+            successFlag = checkAnswer(secretWord, readInput());
         }
+        selectTheGame();
     }
 
-    private static String readInput(Scanner lintConsoleInput) { //Считываем введенное значение от пользователя
+    private static String readInput() { //Считываем введенное значение от пользователя
 
+        Scanner lintConsoleInput = new Scanner(System.in);
         String consoleInput = lintConsoleInput.nextLine();
         System.out.println("Your answer is: " + consoleInput);
         return consoleInput;
@@ -87,7 +95,7 @@ public class PlayTheGame {
 
     public static boolean checkAnswer (String secretWord, String inputWord) { //Проверяем ответ и возвращаем true если угадали и false с подсказкой если нет
         if (secretWord.equals(inputWord)) { //А вдруг сразу угадал, тогда выходим
-            System.out.print("You win. Guessed word is: " + secretWord);
+            System.out.println("You win. Guessed word is: " + secretWord);
             return true;
         }
         for (int letterNum = 0; letterNum < inputWord.length(); letterNum++) {
